@@ -1,0 +1,61 @@
+# YAML configuration doesn't require docstrings, but here's the structure documentation:
+
+data:
+  raw_dir: "data/raw"  # Changed from "data" to "data/raw
+  raw_file: "MachineLearningRating_v3.txt"              # Raw data filename
+  processed_dir: "../data/processed/"  # Cleaned data path
+  
+dvc:
+  remote_path: "../dvc_storage"               # DVC remote storage path
+  
+cleaning_strategies:
+  missing_values:                              # Missing value handling strategies
+    Gender: "fill_unknown"
+    Province: "fill_unknown"
+    VehicleType: "fill_mode"
+    cubiccapacity: "fill_median"
+  numeric_columns:                             # Numeric columns to clean
+    - "CubicCapacity"
+    - "Kilowatts"
+    - "SumInsured"
+  outlier_columns:                             # Columns for outlier treatment
+    - "TotalClaims"
+    - "TotalPremium"
+  winsorize_limits: [0.01, 0.01]               # Winsorization limits
+  high_cardinality_cols:                       # High-cardinality categoricals
+    - "make"
+    - "Model"
+
+    # Other columns...
+  numeric_columns:
+    - "cubiccapacity"  # Ensure consistent naming
+    # Other numeric columns...
+reports:
+  figures_path: "../reports/figures"              # Visualization output directory
+  hypothesis_results_path: "../reports/hypothesis_results.pkl"  # Hypothesis test results
+  final_results_path: "../reports/final_results.pkl"  # Final results storage
+
+model:
+  features:                                    # Model features
+    - "VehicleAge"
+    - "CubicCapacity"
+    - "SumInsured"
+    - "Province"
+    - "Gender"
+    - "VehicleType"
+    - "BodyType"
+  target: "TotalClaims"                        # Prediction target
+  categorical_features:                        # Categorical features
+    - "Province"
+    - "Gender"
+    - "VehicleType"
+    - "BodyType"
+  numeric_features:                            # Numeric features
+    - "VehicleAge"
+    - "CubicCapacity"
+    - "SumInsured"
+  test_size: 0.3                               # Test set size
+  save_dir: "models"                           # Model storage directory
+  interpretability:                            # Interpretability settings
+    enabled: true
+    top_n_features: 10
