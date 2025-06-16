@@ -9,7 +9,8 @@ venv/
 
 # Data files
 data/
-
+# Exclude .dvc files
+!data/raw/*.dvc   
 # IDE specific files
 .vscode/
 .idea/

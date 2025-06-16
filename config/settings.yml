@@ -1,13 +1,12 @@
-# YAML configuration doesn't require docstrings, but here's the structure documentation:
-
 data:
   raw_dir: "data/raw"  # Changed from "data" to "data/raw
   raw_file: "MachineLearningRating_v3.txt"              # Raw data filename
   processed_dir: "../data/processed/"  # Cleaned data path
   
 dvc:
-  remote_path: "../dvc_storage"               # DVC remote storage path
-  
+  remote_path: "../dvc_storage"
+  tracked_files:
+    - "data/raw/MachineLearningRating_v3.txt"  
 cleaning_strategies:
   missing_values:                              # Missing value handling strategies
     Gender: "fill_unknown"
@@ -45,6 +44,8 @@ model:
     - "VehicleType"
     - "BodyType"
   target: "TotalClaims"                        # Prediction target
+
+
   categorical_features:                        # Categorical features
     - "Province"
     - "Gender"
