@@ -1,0 +1,40 @@
+# === Core Dependencies ===
+pandas==2.1.4
+numpy==1.26.4
+scipy==1.13.0
+pyyaml==6.0.1
+python-dotenv==1.0.1
+
+# === Data Versioning ===
+dvc==3.50.1
+pygit2==1.14.1
+typer  
+
+# === Machine Learning ===
+scikit-learn==1.4.2
+xgboost==2.0.3
+imbalanced-learn==0.12.2
+category-encoders==2.6.3
+joblib==1.4.0
+
+# === Visualization ===
+matplotlib==3.8.3
+seaborn==0.13.2
+plotly==5.22.0
+shap==0.45.1
+
+# === Statistics & Hypothesis Testing ===
+statsmodels==0.14.2
+
+# === Data Processing ===
+pyarrow==15.0.2
+openpyxl==3.1.2
+
+# === Logging & Utilities ===
+structlog==24.1.0
+tqdm==4.66.2
+
+# === Testing ===
+pytest==8.1.1
+pytest-cov==4.1.0
+hypothesis==6.99.8
